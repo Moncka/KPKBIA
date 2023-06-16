@@ -7,87 +7,30 @@
 <style> @-ms-viewport { width: device-width; } </style>
 <link rel="stylesheet" href="vendor/reset.min.css">
 <link rel="stylesheet" href="style.css">
-<style>
-#topBar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #f1f1f1;
-}
-.dropBar {
-  position: relative;
-  display: inline-block;
-  margin: 0 10px;
-  cursor: pointer;
-}
-.dropBarContent {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-.dropBar:hover .dropBarContent {
-  display: block;
-}
-.dropBarItem {
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  cursor: pointer;
-}
-</style>
 </head>
-<body class="multiple-scenes">
+<body class="multiple-scenes ">
 
 <div id="pano"></div>
 
-<div id="topBar">
-  <div class="dropBar">
-    Розділ 1
-    <div class="dropBarContent">
-      <a href="#">Центральний вхід</a>
-      <a href="#">Хол</a>
-    </div>
-  </div>
-  <div class="dropBar">
-    Розділ 2
-    <div class="dropBarContent">
-      <a href="#">Парк</a>
-    </div>
-  </div>
-  <div class="dropBar">
-    Розділ 3
-    <div class="dropBarContent">
-      <a href="#">1 поверх</a>
-    </div>
-  </div>
-</div>
-
 <div id="sceneList">
   <ul class="scenes">
-    <li>
+    
       <a href="javascript:void(0)" class="scene" data-id="0--">
-        Центральний вхід
+        <li class="text">Центральний вхід</li>
       </a>
-    </li>
-    <li>
+    
       <a href="javascript:void(0)" class="scene" data-id="1-">
-        Хол
+        <li class="text">Хол</li>
       </a>
-    </li>
-    <li>
+    
       <a href="javascript:void(0)" class="scene" data-id="2-1-">
-        1 поверх
+        <li class="text">1 поверх</li>
       </a>
-    </li>
-    <li>
+    
       <a href="javascript:void(0)" class="scene" data-id="3-">
-        Парк
+        <li class="text">Парк</li>
       </a>
-    </li>
+    
   </ul>
 </div>
 
@@ -105,9 +48,33 @@
   <img class="icon on" src="img/windowed.png">
 </a>
 
-<script src="vendor/screenfull.min.js"></script>
-<script src="vendor/bowser.min.js"></script>
-<script src="vendor/marzipano.js"></script>
+<a href="javascript:void(0)" id="sceneListToggle">
+  <img class="icon off" src="img/expand.png">
+  <img class="icon on" src="img/collapse.png">
+</a>
+
+<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+  <img class="icon" src="img/up.png">
+</a>
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+  <img class="icon" src="img/down.png">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+  <img class="icon" src="img/left.png">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+  <img class="icon" src="img/right.png">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+  <img class="icon" src="img/plus.png">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+  <img class="icon" src="img/minus.png">
+</a>
+
+<script src="vendor/screenfull.min.js" ></script>
+<script src="vendor/bowser.min.js" ></script>
+<script src="vendor/marzipano.js" ></script>
 
 <script src="data.js"></script>
 <script src="index.js"></script>
