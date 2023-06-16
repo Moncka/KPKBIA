@@ -26,15 +26,15 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="default">
 		<style type="text/css">
 			@-ms-viewport { width: device-width; }
-			@media only screen and (min-device-width: 800px) { html { overflow:hidden; } }
+			@media only screen and (min-device-width: 800px) { html { overflow: hidden; } }
 			* { padding: 0; margin: 0; }
 			html { height: 100%; }
-			body { height: 100%; overflow:hidden; }
+			body { height: 100%; overflow-x: hidden; }
 			div#container { height: 100%; min-height: 100%; width: 100%; margin: 0 auto; }
 			div#tourDIV {
-				height:100%;
-				position:relative;
-				overflow:hidden;
+				height: 100%;
+				position: relative;
+				overflow: hidden;
 			}
 			div#panoDIV {
 				height:100%;
@@ -48,6 +48,334 @@
 			}
 
 
+		</style>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- Custom theme -->
+		<style type="text/css">
+			@font-face {
+				font-family: 'open_sansregular';
+				src: url('fonts/OpenSans-Regular-webfont.eot');
+				src: url('fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+					 url('fonts/OpenSans-Regular-webfont.woff') format('woff'),
+					 url('fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+					 url('fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+				font-weight: normal;
+				font-style: normal;
+			}
+			@-ms-viewport { width: device-width; }
+			@media only screen and (min-device-width: 800px) { html { } }
+			html { padding: 0; margin: 0; }
+			body { padding: 0; margin: 0; }
+			a, a:active, a:hover, a:visited, h1 { 
+				color: #000000;
+				font-family: 'open_sansregular',Arial,sans-serif;
+			}
+			p, span, div, h2, h3, h4, h5, li { 
+				color: #000000;
+				font-family: 'open_sansregular',Arial,sans-serif;
+			}
+			h1 {
+				letter-spacing: -1px;
+			}
+			div#tourDIV {
+				padding: 0;
+				margin: 0;
+				position: relative;
+				height: 100%;
+			}
+			div#tour-container {
+				/*height: 50vh;*/
+				margin-bottom: 15px;
+				padding: 5px;
+				border-radius: 6px;
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+				-ms-border-radius: 6px;
+				-o-border-radius: 6px;
+			}
+			div#panoDIV {
+				padding: 0;
+				margin: 0px 0px 15px 0px;
+			}
+			div#thumbnailsDIV {
+				position: relative;
+				height: 120px;
+				overflow: hidden;
+				white-space: nowrap;
+				margin-bottom: 40px;
+				padding-left: 0;
+				padding-right: 0;
+			}
+			div#thumbnailsDIV div {
+				display: inline-block;
+			}
+			div#thumbnailsDIV div:not(:last-child) {
+				margin-right: 15px;
+			}
+			div#thumbnailsDIV div img {
+				height: 100px;
+				width: auto;
+			} 
+			#toolbar {
+				margin-bottom: 15px;
+			}
+			#share-box .fa {
+				font-size: 70px;
+			}
+			#help-box,
+			#share-box,
+			#info-box {
+				z-index: 9999;
+			}
+			.tab-pane {
+				padding-top: 15px;
+			}
+			.footer {
+				height: 75px;
+				padding: 20px 0px;
+			}
+			.pdtop15{ padding-top: 15px; }
+			.pdtop30{ padding-top: 30px; }
+			/*Navbar*/
+			.navbar-default {
+				border-radius: 0px;
+				-webkit-border-radius: 0px;
+				-moz-border-radius: 0px;
+				-ms-border-radius: 0px;
+				-o-border-radius: 0px;
+				box-shadow: 0 0 5px 2px #151515;
+				-webkit-box-shadow: 0 0 5px 2px #151515;
+				-moz-box-shadow: 0 0 5px 2px #151515;
+				-ms-box-shadow: 0 0 5px 2px #151515;
+				-o-box-shadow: 0 0 5px 2px #151515;
+			}
+			.navbar-default {
+				background-image: -webkit-linear-gradient(top, #ffffff 0%, #d5d5d5 100%);
+				background-image: -moz-linear-gradient(top, #ffffff 0%, #d5d5d5 100%);
+				background-image: -ms-linear-gradient(top, #ffffff 0%, #d5d5d5 100%);
+				background-image: -o-linear-gradient(top, #ffffff 0%, #d5d5d5 100%);
+				border-color: #d5d5d5;
+			}
+			.navbar-nav > li > a, .navbar-brand {
+				color: #000000 !important;
+			}
+			.navbar-nav > li > a:hover, .navbar-brand:hover {
+				color: #000000 !important;
+			}
+			.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+				background-color: #ffffff;
+			}
+			.open > .dropdown-menu {
+				background-color: #d5d5d5 !important;
+			}
+			.open > .dropdown-menu li a {
+				color: #000000 !important;
+			}
+			.open > .dropdown-menu li a:hover {
+				color: #ffffff !important;
+				background-color: #000000 !important;
+			}
+			/*sub menu border*/
+			.navbar-default .navbar-collapse {
+				border-color: #ffffff;
+			}
+			@media (max-width: 991px) {
+				.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+					color: #ffffff;
+					opacity: 0.8;
+				}
+				.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+					color: #000000;
+					background-color: #ffffff;
+				}
+				.dropdown-menu {
+					border-radius: 0px;
+				}
+				.container-fluid > .navbar-collapse {
+					margin-right: -15px;
+					margin-left: -15px;
+				}
+				.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+					line-height: 20px;
+				}
+				.navbar-nav .open .dropdown-menu > li > a {
+					padding: 5px 15px 5px 25px;
+				}
+				.container-fluid > .navbar-header {
+					float: none;
+					margin-right: -15px;
+				}
+				.navbar-toggle {
+					display: block;
+				}
+				.navbar-collapse {
+					border-top: 1px solid transparent;
+					box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+				}
+				.navbar-collapse.collapse {
+					display: none!important;
+				}
+				.navbar-nav {
+					float: none!important;
+					margin: 7.5px -15px;
+				}
+				.navbar-nav>li {
+					float: none;
+				}
+				.navbar-nav>li>a {
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+				.navbar-text {
+					float: none;
+					margin: 15px 0;
+				}
+				.navbar-collapse.collapse.in { 
+					display: block!important;
+				}
+				.collapsing {
+					overflow: hidden!important;
+				}
+				.navbar-nav .open .dropdown-menu {
+					position: static;
+					float: none;
+					width: auto;
+					margin-top: 0px;
+					background-color: transparent;
+					border: 0px none;
+					box-shadow: none;
+				}
+			}
+			/*Dropdown button and dropdown menu*/
+			.btn-group .btn-primary {
+				border-color: transparent !important;
+				background-color: #000000;
+			}
+			.btn-group .dropdown-menu {
+				background-color: #ffffff;
+			}
+			.btn-group .dropdown-menu li a {
+				color: #000000;
+			}
+			.btn-group .dropdown-menu li a:hover {
+				color: #000000;
+				background-color: #000000;
+			}
+			.btn-group.open .dropdown-toggle {
+				border-color: transparent !important;
+			}
+			.dropup .caret { 
+				color: #ffffff;
+			}
+			.btn-group.open .dropdown-toggle {
+				color: #000000;
+			}
+			/* tab color */
+			.nav-tabs>li>a {
+			  background-color: transparent; 
+			  color: #000000;
+			}
+			/* active tab color */
+			.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+			  color: #000000;
+			  background-color: transparent;
+			}
+			/* hover tab color */
+			.nav-tabs>li>a:hover {
+			  background-color: transparent;
+			  border: 1px solid transparent;
+			  color: #000000;
+			}
+			.breadcrumb .active {
+				color: #000000 !important;
+			}
+			/*Thumbnails*/
+			div#thumbnailsDIV::selection {
+			  background: none; /* WebKit/Blink Browsers */
+			}
+			div#thumbnailsDIV::-moz-selection {
+			  background: none; /* Gecko Browsers */
+			}
+			.breadcrumb>li+li:before {
+				color: #000000;
+			}
+			.container-fluid .toolbar {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			#toolbar .btn {
+				/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+				background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk5JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjQiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjQiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+				background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 99%, rgba(0,0,0,0.4) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(99%,rgba(0,0,0,0.4)), color-stop(100%,rgba(0,0,0,0.4))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 99%,rgba(0,0,0,0.4) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 99%,rgba(0,0,0,0.4) 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 99%,rgba(0,0,0,0.4) 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 99%,rgba(0,0,0,0.4) 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#66000000',GradientType=0 ); /* IE6-8 */
+				border: none;
+				margin-bottom: 8px;
+				margin-right: 3px;
+				box-shadow: 0px 0px 1px #151515;
+				-webkit-box-shadow: 0px 0px 1px #151515;
+				-moz-box-shadow: 0px 0px 1px #151515;
+				-ms-box-shadow: 0px 0px 1px #151515;
+				-o-box-shadow: 0px 0px 1px #151515;
+			}
+			#toolbar .btn span {
+				color: #000000;
+			}
+			#toolbar .btn:active {
+			}
+			#toolbar .btn:hover {
+				box-shadow: 0px 0px 3px #151515;
+				-webkit-box-shadow: 0px 0px 3px #151515;
+				-moz-box-shadow: 0px 0px 3px #151515;
+				-ms-box-shadow: 0px 0px 3px #151515;
+				-o-box-shadow: 0px 0px 3px #151515;
+			}
+			#toolbar .btn-group {
+				background-color:#ffffff;
+				box-shadow: 0 1px 2px 0px #111111;
+				-webkit-box-shadow: 0 1px 2px 0px #111111;
+				-moz-box-shadow: 0 1px 2px 0px #111111;
+				-ms-box-shadow: 0 1px 2px 0px #111111;
+				-o-box-shadow: 0 1px 2px 0px #111111;
+				border-radius: 6px;
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+				-ms-border-radius: 6px;
+				-o-border-radius: 6px;
+			}
+			/*Primary color button*/
+			.btn-primary {
+				color: #ffffff;
+				border: none;
+			}
+			/*Horizontal scrollbar*/
+			.ps-scrollbar-x-rail, .ps-scrollbar-x-rail:hover {
+				background-color: #ffffff !important;
+				
+			}
+			.ps-container .ps-scrollbar-x {
+				background-color: #000000 !important;
+			}
+			/*Modal*/
+			.modal-content {
+			}
+			/*Close button*/
+			.close {
+				color: #000000 !important;
+			}
+			/*fix plugin*/
+			div#panoDIV * {
+				box-sizing: content-box;
+				-moz-box-sizing: content-box;
+				-webkit-box-sizing: content-box;
+				-o-box-sizing: content-box;
+				-ms-box-sizing: content-box !important;
+			}
 		</style>
 				<!--[if !IE]><!-->
 		<script type="text/javascript" src="TestTour1data/lib/jquery-2.1.1.min.js"></script>
@@ -178,11 +506,67 @@
 				return false;
 			}
 		</script>
+		<style type="text/css">
+			/*fix navbar drop down menu over*/
+			.dropdown-menu, .modal {
+				z-index: 7000;
+			}
+			/*fix box sizing*/
+	        div.kolorBox,
+	        ul.kolorMenu li.kolorMenuItem>p {
+	        	box-sizing: content-box;
+	        	-webkit-box-sizing: content-box;
+	        	-moz-box-sizing: content-box;
+	        	-ms-box-sizing: content-box;
+	        	-o-box-sizing: content-box;
+	        }
+		</style>
 	</head>
 	<body>
-		<div id="container">
-
-			<div id="tourDIV">
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="col-md-1 hidden-sm hidden-xs">
+			</div>
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand visible-sm visible-xs colorFgDarkerOnly panorama-title" href="#"></a>
+			  <a class="navbar-brand hidden-sm hidden-xs colorFgDarkerOnly" href="#pano37"  onclick="getTourPlayer().call('mainloadscene(pano37)')">New Project</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+			
+			  
+				
+				  
+					  <li><a href="#s=pano37" onclick="getTourPlayer().call('mainloadscene(pano37)')" class="">Хол</a></li>
+				  
+				
+			  
+				
+				  
+					  <li><a href="#s=pano39" onclick="getTourPlayer().call('mainloadscene(pano39)')" class="">1 поверх</a></li>
+				  
+				
+			  
+			
+			  </ul>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="container-fluid">
+			<div class="col-md-1 hidden-sm hidden-xs">
+			</div>
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-12" id="tour-container">
+						<div id="tourDIV">
 				<div id="panoDIV">
 					<noscript>
 
@@ -213,7 +597,369 @@
 						accessStdVr();
 					}
 				</script>
+						</div>
+					</div><!-- end #tour-container -->
+					<div id="thumbnailsDIV" class="col-md-12 col-ms-12 hidden-xs" title="Mouse wheel or drag" data-placement="bottom">
+					
+					  
+							<div style="cursor:pointer;" onclick="getTourPlayer().call('mainloadscene(pano37)')">
+								<a href="#s=pano37"><img src="TestTour1data/pano_37/thumbnail.jpg" title="Хол" alt="Хол" class="img-thumbnail"/></a>
+							</div>
+					  
+					
+					  
+							<div style="cursor:pointer;" onclick="getTourPlayer().call('mainloadscene(pano39)')">
+								<a href="#s=pano39"><img src="TestTour1data/pano_39/thumbnail.jpg" title="1 поверх" alt="1 поверх" class="img-thumbnail"/></a>
+							</div>
+					  
+					
+					</div><!-- end thumbnails div -->
+					<div class="col-md-12 col-sm-12 col-xs-12 text-center toolbar">
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12" id="toolbar">
+								<div class="">
+									<button 	type="button"
+												class="btn btn-default btn-lg"
+												onclick="getTourPlayer().call('loadPreviousScene()')"
+												data-toggle="tooltip"
+												data-placement="left"
+												title="Previous panorama">
+												<span class="glyphicon glyphicon-chevron-left"></span>
+									</button>
+									<button		type="button"
+												class="btn btn-default btn-lg"
+												onclick="getTourPlayer().call('loadNextScene()')"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Next panorama">
+												<span class="glyphicon glyphicon-chevron-right"></span>
+									</button>
+									<button		type="button" 
+												class="btn btn-default btn-lg"
+												onmousedown="getTourPlayer().call('set(fov_moveforce, -1)')"
+												onmouseup="getTourPlayer().call('set(fov_moveforce, 0)')"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Zoom in">
+												<span class="glyphicon glyphicon-plus"></span>
+									</button>
+									<button		type="button"
+												class="btn btn-default btn-lg"
+												onmousedown="getTourPlayer().call('set(fov_moveforce, +1)')"
+												onmouseup="getTourPlayer().call('set(fov_moveforce, 0)')"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Zoom out">
+												<span class="glyphicon glyphicon-minus"></span>
+									</button>
+									<button		type="button" 
+												class="btn btn-default btn-lg"
+												id="play"
+												onclick="getTourPlayer().call('startautorotation()')"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Start autorotation">
+												<span class="glyphicon glyphicon-play"></span>
+									</button>
+									<button		type="button" style="display:none"
+												class="btn btn-default btn-lg"
+												id="pause"
+												onclick="getTourPlayer().call('stopautorotation()')"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Stop autorotation">
+												<span class="glyphicon glyphicon-pause"></span>
+									</button>
+									<button		type="button"
+												class="btn btn-default btn-lg"
+												data-toggle="modal"
+												data-target="#info-box"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Show project description">
+												<span class="glyphicon glyphicon-info-sign"></span>
+									</button>
+									<button		type="button"
+												class="btn btn-default btn-lg"
+												data-toggle="modal"
+												data-target="#help-box"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Show help">
+												<span class="glyphicon glyphicon-question-sign"></span>
+									</button>
+									<button		type="button"
+												id="trig"
+												class="btn btn-default btn-lg"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Toggle thumbnails">
+												<span class="glyphicon glyphicon-eye-close"></span>
+									</button>
+									<button		type="button"
+												class="btn btn-default btn-lg"
+												onclick="getTourPlayer().call('enterFullScreen()')"
+												data-toggle="tooltip"
+												data-placement="right"
+												title="Toggle fullscreen">
+												<span class="glyphicon glyphicon-fullscreen"></span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div><!-- end toolbar div -->
+				</div><!-- end row -->
+			</div>
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<h1 class="page-header panorama-title">Current Panorama Name</h1>
+				<ol class="breadcrumb">
+				  <li><a href="#pano37"  onclick="getTourPlayer().call('mainloadscene(pano37)')">New Project</a></li>
+				  <li class="hide-if-no-group"><a href="#" class="group-link group-title">Current Group</a></li>
+				  <li class="active panorama-title">Current Panorama Name</li>
+				</ol>
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs pdtop30" id="pt-tabs">
+					  <li class="active"><a href="#description-tab" data-toggle="tab">Description</a></li>
+					  <li class="hide-if-no-group"><a href="#group-description-tab" data-toggle="tab" class="group-title"></a></li>
+					  <li><a href="#project-description-tab" data-toggle="tab">About</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="description-tab">
+						<div class="description-text">
+							
+						</div>
+					</div>
+					<div class="tab-pane hide-if-no-group" id="group-description-tab">
+						<div class="group-description-text">
+						</div>
+					</div>
+					<div class="tab-pane" id="project-description-tab">
+						<div class="project-description-text">
+						</div>
+						<p class="text-muted pdtop15">&copy; New Project by <a href="" title="Author website"></a></p>
+					</div>
+				</div>
+				<!-- Info modal box -->
+				<div class="modal fade" id="info-box">
+				  <div class="modal-dialog">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">New Project</h4>
+					  </div>
+					  <div class="modal-body">
+						<div class="project-description-text"></div>
+						<p class="text-muted pdtop15">&copy; New Project by <a href="" title="Author website"></a></p>
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					  </div>
+					</div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				<!-- /.Info modal box -->
+				<!-- Help modal box -->
+				<div class="modal fade" id="help-box">
+				  <div class="modal-dialog">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Help</h4>
+					  </div>
+					  <div class="modal-body">
+						<div class="row">
+							<div class="col-md-6 text-center">
+								<h3>Move</h3>
+								<p>Drag the mouse to move or use arrows keys</p>
+								<p><img src="img/help-move.png" alt="Move help"/>
+							</div>
+							<div class="col-md-6 text-center">
+								<h3>Zoom</h3>
+								<p>Use mouse wheel to zoom or use + and - keys</p>
+								<p><img src="img/help-zoom.png" alt="Zoom help"/></p>
+							</div>
+						</div>
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					  </div>
+					</div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				<!-- /.Help modal box -->
+			</div>
+			<div class="col-md-1 hidden-sm hidden-xs">
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 footer">
+				<p class="text-muted text-center">&copy; New Project by <a href="" title="Author website"></a></p>
 			</div>
 		</div>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="TestTour1data/TestTour1.js"></script>
+		<script type="text/javascript" src="js/jquery.xcolor.min.js"></script>
+		<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+		<script type="text/javascript">
+			/*
+			* CUSTOM VARIABLES
+			*/
+			var fgColor = '#000000';
+			var bgColor = '#ffffff';
+			/*
+			* CUSTOM FUNCTIONS
+			*/
+			var sizes = function(){
+				var windowHeight = jQuery(window).height();
+				var tourContainerHeight = windowHeight * 0.6;
+				jQuery('#tour-container').css({height:tourContainerHeight+'px'});
+			};
+			var colors = function(){
+				var bgDarker = jQuery.xcolor.darken(bgColor);
+				var bg2xDarker = jQuery.xcolor.darken(bgDarker);
+				var bg4xDarker = jQuery.xcolor.darken(bg2xDarker);
+				var bg8xDarker = jQuery.xcolor.darken(bg4xDarker);
+				jQuery('body').css({backgroundColor: bgDarker});
+				jQuery('#tour-container').css({border: '1px solid '+bg2xDarker});
+				jQuery('.page-header').css({borderBottom: '1px solid '+bg2xDarker});
+				jQuery('.breadcrumb').css({backgroundColor: bg2xDarker});
+				jQuery('.nav-tabs').css({borderBottomColor: bg2xDarker});
+				jQuery('.nav-tabs li.active a').css({borderColor: bg2xDarker, borderBottom: '1px solid '+bgDarker});
+				jQuery('.navbar-toggle').css({borderColor: bg2xDarker});
+				jQuery('.navbar-toggle span').css({backgroundColor: bg2xDarker});
+				jQuery('.img-thumbnail').css({backgroundColor: bgDarker, border:'1px solid '+bg2xDarker});
+				jQuery('.modal-footer').css({borderTop: '1px solid '+bg2xDarker});
+				jQuery('.modal-header').css({borderBottom: '1px solid '+bg2xDarker});
+				jQuery('.modal-content').css({backgroundColor: bgDarker});
+				jQuery('.text-muted').css({color: bg4xDarker});
+				jQuery('.text-muted a').css({color: bg8xDarker});
+				jQuery('.btn-primary').css({backgroundColor: bg4xDarker});
+				jQuery('.btn-primary').mouseenter(function() {
+					jQuery(this).css({backgroundColor: bg2xDarker, color: bgColor});
+				}).mouseleave(function() {
+					jQuery(this).css({backgroundColor: bg4xDarker, color: bgColor});
+				});
+				//jQuery(".nav-tabs li:not(:has(.active)) a").css({borderColor: bgLighter, borderBottom: '1px solid '+bg2xLighter});
+				jQuery('.nav-tabs a').on( "click", function() {
+					jQuery(".nav-tabs li:not(:has(.active)) a").css({borderColor: bgDarker, borderBottom: '1px solid '+bg2xDarker});
+					jQuery(this).css({borderColor: bg2xDarker, borderBottom: '1px solid '+bgDarker});
+				});
+			};
+			var toggleThumbnails = function(){
+				jQuery('#thumbnailsDIV').toggle("slow", function() {
+					// Animation complete:
+					if(jQuery("#trig span").hasClass('glyphicon-eye-close')) {
+						jQuery("#trig span").removeClass('glyphicon-eye-close').toggleClass('glyphicon-eye-open');
+					}else{
+						jQuery("#trig span").removeClass('glyphicon-eye-open').toggleClass('glyphicon-eye-close');
+					}
+				});
+			};
+			//Tour Player
+			function getTourPlayer() {
+					return document.getElementById('krpanoSWFObject');
+			}
+			//External commands and dynamic texts
+			function updatePanorama(panoid) {
+				jQuery('.project-description-text').html(ktools.I18N.getInstance().getMessage("project_description"));
+				window.history.pushState(null, null, "#s=" + panoid);
+
+				var panotourPlayer = getTourPlayer();
+				var groupid = panotourPlayer.get("scene["+panoid+"].group");
+				var titleid = panotourPlayer.get("scene["+panoid+"].titleid");				
+
+				//HTML tags with this class (panorama-title) will display the current panorama title
+				jQuery('.panorama-title').html(ktools.I18N.getInstance().getMessage(titleid));
+
+				//HTML tags with this class (description-text) will display the current panorama description
+				//Hidden if no description
+				//Shown if there is a description
+				var descriptionid = panotourPlayer.get("scene["+panoid+"].descriptionid");
+				if (descriptionid != "") {
+					jQuery('.description-text').show();
+					jQuery('.description-text').html(ktools.I18N.getInstance().getMessage(descriptionid));					
+				}else{
+					jQuery('.description-text').hide();
+				}
+					
+				if (groupid != null) {
+					var titleid = panotourPlayer.get("panoramagroup["+groupid+"].titleid");
+					if (titleid != "") {
+						//HTML tags with class (group-title) will display the group title
+						jQuery('.group-title').html(ktools.I18N.getInstance().getMessage(titleid));
+						//If no group, no breadcrumb
+						jQuery('.breadcrumb .hide-if-no-group, .nav-tabs .hide-if-no-group').show();
+
+						var mainscene = panotourPlayer.get("panoramagroup["+groupid+"].mainscene");
+						var temp = "getTourPlayer().call('mainloadscene("+mainscene+")')";
+						jQuery('.group-link').attr('onclick',temp);
+
+						var descriptionid = panotourPlayer.get("panoramagroup["+groupid+"].descriptionid");
+						if (descriptionid != "")
+						{
+							//HTML tags with class (group-description-text) will display the group description
+							jQuery('.group-description-text').html(ktools.I18N.getInstance().getMessage(descriptionid));
+						}else{
+							//If no group description, hide
+							jQuery('.group-description-text').hide();
+						}
+					}
+				}else{
+					//If no group, hide all elements in relation with it
+					jQuery('.breadcrumb .hide-if-no-group, .nav-tabs .hide-if-no-group').hide();
+				}
+			}
+			/*
+		    * EXECUTE ONCE DOM READY
+		    */
+		    jQuery(document).ready(function() {
+				sizes();
+				colors();
+
+
+
+
+
+				jQuery( '#play, #pause' ).on( "click", function() {
+					jQuery('#play, #pause').toggle();
+				});
+				jQuery( "#toolbar button" ).mousedown(function() {
+					jQuery(this).removeClass('btn-default');
+					jQuery(this).addClass('btn-primary');
+				});
+				jQuery( "#toolbar button" ).mouseleave(function() {
+					jQuery(this).removeClass('btn-primary');
+					jQuery(this).addClass('btn-default');
+				});
+				jQuery( "#trig" ).on( "click", toggleThumbnails );
+				//Tooltips
+				jQuery('.btn-group button, #thumbnailsDIV').tooltip({container: 'body'});
+				//Tab
+				jQuery('#pt-tabs').click(function (e) {
+				  e.preventDefault()
+				  jQuery(this).tab('show')
+				});
+				//Dragging feature of the thumbnails
+				jQuery('#thumbnailsDIV').niceScroll({
+					cursorborder: '0px',
+					cursorwidth: '10px',
+					railpadding: '0px 0px 10px 0px'
+				});
+			});
+		    /*
+		    * EXECUTE ONCE PAGE LOADED
+		    */
+		    jQuery(window).load(function() {
+
+		    });
+		    /*
+		    * EXECUTE ON WINDOW RESIZE
+		    */
+		    jQuery(window).resize(function() {
+				sizes();
+		    });
+		</script>
 	</body>
+	<!-- Bootstrap_External_Commands_w_Colors_Dark_on_Light 2015/10 -->
 </html>
